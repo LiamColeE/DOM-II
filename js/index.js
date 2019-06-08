@@ -83,3 +83,10 @@ document.addEventListener("keypress", function(e){
     }
     console.log(currentInputString);
 });
+
+//
+// disable context menu
+// 
+document.addEventListener('contextmenu', function(e){
+    e.preventDefault();
+});
