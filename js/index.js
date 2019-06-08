@@ -7,6 +7,9 @@ let mouseX = 0;
 let mouseY = 0;
 
 document.addEventListener("mousemove", function (e) {
+    if(clicked == true){
+        e.preventDefault();
+    }
     mouseX = e.clientX;
     mouseY = e.clientY;
     drag();
@@ -48,11 +51,15 @@ headerImg.addEventListener('mouseup', event => {
 
 function drag() {
     if (clicked) {
-        headerImg.style.left = `${mouseX}px`
-        headerImg.style.top = `${mouseY}px`
+        headerImg.style.left = `${mouseX-500}px`
+        headerImg.style.top = `${mouseY-150}px`
     }
 }
 
+// 
+// Create ability to "delete" and "restore" all elements on page by typing delete
+// or restore
+// 
 let everyElement = Array.from(document.querySelectorAll("*"));
 let currentInputString = "";
 
