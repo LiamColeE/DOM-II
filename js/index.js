@@ -92,10 +92,20 @@ document.addEventListener('contextmenu', function(e){
 });
 
 //
-//
+//MAKE THE WINDOW ANNOW YOU EVERYTIME YOU RESIZE
 //
 function askForPeace() {
     alert("PLEASE DONT RESIZE ME");
 }
   
 window.onresize = askForPeace;
+
+
+//
+// make it so you cant copy text from the page
+// 
+document.addEventListener('copy', function (e){
+    const selection = document.getSelection();
+    e.clipboardData.setData('text/plain', "sorry, no copying from this page. its ill eagle");
+    e.preventDefault();
+});
