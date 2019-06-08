@@ -52,3 +52,27 @@ function drag() {
         headerImg.style.top = `${mouseY}px`
     }
 }
+
+let everyElement = Array.from(document.querySelectorAll("*"));
+let currentInputString = "";
+
+document.addEventListener("keypress", function(e){
+    if(currentInputString.length < "restore".length){
+        currentInputString += e.key;
+    }
+    else if(currentInputString.length === "restore".length){
+        currentInputString = currentInputString.substr(1) + e.key;
+    }
+
+    if(currentInputString.toLocaleLowerCase().includes("delete")){
+        everyElement.forEach(element => {
+            element.style.visibility = "hidden";
+        });
+    }
+    else if(currentInputString.toLocaleLowerCase().includes("restore")){
+        everyElement.forEach(element => {
+            element.style.visibility = "visible";
+        });
+    }
+    console.log(currentInputString);
+});
