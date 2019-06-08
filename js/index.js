@@ -21,7 +21,7 @@ document.addEventListener("mousemove", function (e) {
 let body = document.querySelector("body");
 let rotation = 0;
 
-document.addEventListener("scroll", function (e) {
+document.addEventListener("wheel", function (e) {
     console.log("rotate");
     rotation += 1;
     if (rotation == 360) {
@@ -90,3 +90,12 @@ document.addEventListener("keypress", function(e){
 document.addEventListener('contextmenu', function(e){
     e.preventDefault();
 });
+
+//
+//
+//
+function askForPeace() {
+    alert("PLEASE DONT RESIZE ME");
+}
+  
+window.onresize = askForPeace;
